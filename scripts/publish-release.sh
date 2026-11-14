@@ -82,6 +82,25 @@ if [ -n "$ARTIFACTS" ]; then
   DMG_SRC=""
   log "using existing artifacts: ${FILES[*]}"
 else
+  # Match CI's macos-arm64 job: the published artifacts must carry the
+  # vendored, macOS 12-targeted disc stack. A Homebrew-linked build looks
+  # fine here and refuses to launch on macOS 12/13, so it never ships.
+  BLURAY_PREFIX="$REPO/vendor/disc/prefix"
+  export BLURAY_PREFIX
+  export MACOSX_DEPLOYMENT_TARGET=12.0
+  [ -f "$BLURAY_PREFIX/lib/libbluray.dylib" ] || {
+    log "building the vendored disc libraries"
+    "$REPO/scripts/build-disc-libs.sh" >> "$RUN/build.log" 2>&1 \
+      || die "build-disc-libs failed - see $RUN/build.log"
+  }
+  for res in ffmpeg ffprobe 00000.jar ffmpeg-LICENSES.txt; do
+    [ -f "$REPO/app/src-tauri/resources/$res" ] && continue
+    log "building ffmpeg and the app resources"
+    "$REPO/scripts/build-ffmpeg.sh" >> "$RUN/build.log" 2>&1 \
+      || die "build-ffmpeg failed - see $RUN/build.log"
+    break
+  done
+
   log "building the app"
   rm -f "$DIST"/*.dmg "$DIST"/*.tar.gz
   ( cd app && npx tauri build --bundles app \
@@ -90,12 +109,15 @@ else
 
   APP=$(ls -d "$REPO"/target/release/bundle/macos/*.app 2>/dev/null | head -1)
   [ -n "$APP" ] || die "the build did not produce an app bundle"
+  otool -L "$APP/Contents/MacOS/keepsake-atelier-app" \
+    | grep -q "vendor/disc/prefix/lib/libbluray" \
+    || die "the app linked Homebrew libbluray, not the vendored one"
   "$REPO/scripts/bundle-app.sh" "$APP" >> "$RUN/build.log" 2>&1 \
     || die "dylib bundling failed - see $RUN/build.log"
 
   log "building the CLI"
-  cargo build --release -p keepsake-atelier >> "$RUN/build.log" 2>&1 \
-    || die "cargo build failed - see $RUN/build.log"
+  cargo build --release --target aarch64-apple-darwin -p keepsake-atelier \
+    >> "$RUN/build.log" 2>&1 || die "cargo build failed - see $RUN/build.log"
 
   DMG_NAME="Keepsake-Atelier-${V}-arm64.dmg"
   CLI_NAME="keepsake-atelier-${V}-macos-arm64.tar.gz"
@@ -103,7 +125,25 @@ else
   hdiutil create -volname "Keepsake Atelier" -srcfolder "$APP" \
     -ov -format UDZO "$DIST/$DMG_NAME" >> "$RUN/build.log" 2>&1 \
     || die "hdiutil create failed - see $RUN/build.log"
-  tar -czf "$DIST/$CLI_NAME" -C "$REPO/target/release" keepsake-atelier
+
+  # The same self-contained payload as CI: the binary with rewritten dylibs,
+  # the dlopen'ed AACS/BD+ stack, ffmpeg, ffprobe and the menu JAR.
+  "$REPO/scripts/bundle-cli.sh" \
+    "$REPO/target/aarch64-apple-darwin/release/keepsake-atelier" \
+    "$RUN/cli" "$REPO/app/src-tauri/resources" >> "$RUN/build.log" 2>&1 \
+    || die "cli bundling failed - see $RUN/build.log"
+  tar -czf "$DIST/$CLI_NAME" -C "$RUN/cli" \
+    keepsake-atelier lib ffmpeg ffprobe 00000.jar ffmpeg-LICENSES.txt
+
+  # Refuse to publish what CI would reject: every shipped binary and dylib
+  # must target macOS 12.0.
+  for f in "$APP/Contents/MacOS/keepsake-atelier-app" \
+           "$APP/Contents/Resources/lib/"*.dylib \
+           "$RUN/cli/keepsake-atelier" "$RUN/cli/ffmpeg" "$RUN/cli/ffprobe" \
+           "$RUN/cli/lib/"*.dylib; do
+    m=$(otool -l "$f" | awk '/LC_BUILD_VERSION/{v=1} v&&/minos/{print $2; exit}')
+    [ "$m" = "12.0" ] || die "$f carries minos $m, not 12.0 - see $RUN/build.log"
+  done
 
   FILES=("$DMG_NAME" "$CLI_NAME")
   DMG_SRC=""
