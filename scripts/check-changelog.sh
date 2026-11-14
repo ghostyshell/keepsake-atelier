@@ -31,7 +31,24 @@ git rev-parse --verify --quiet "$base" >/dev/null || {
 changed=$(git diff --name-only "$base")
 [ -n "$changed" ] || { echo "no changes against $base"; exit 0; }
 
+# The weekly mirror refresh rewrites only the generated download links in
+# README.md (docs/downloads.json and docs/sitemap.xml are not product files).
+# Free-host links rot, so repointing them is routine release metadata, not a
+# behaviour change, and it must not demand a version bump.
+strip_downloads() {
+  sed '/<!-- downloads:start -->/,/<!-- downloads:end -->/d'
+}
+
+readme_links_only() {
+  diff -q \
+    <(git show "$base:README.md" 2>/dev/null | strip_downloads) \
+    <(strip_downloads < README.md) >/dev/null
+}
+
 product=$(printf '%s\n' "$changed" | grep -E '^(core|cli|app/src|app/src-tauri/src|docs/guides/|README\.md|Cargo\.toml)' || true)
+if printf '%s\n' "$product" | grep -qx 'README\.md' && readme_links_only; then
+  product=$(printf '%s\n' "$product" | grep -vx 'README\.md' || true)
+fi
 if [ -z "$product" ]; then
   echo "no product files changed; no bump required"
   exit 0
