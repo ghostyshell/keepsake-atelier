@@ -41,9 +41,9 @@ Windows from one Rust engine.
 <!-- downloads:start -->
 | Build | GoFile (primary) | file.kiwi (backup) | Size |
 | --- | --- | --- | --- |
-| `Keepsake-Atelier-0.3.3-arm64.dmg` | [Download](https://gofile.io/d/P59z14Ms) | [Mirror](https://file.kiwi/82e35db1#3gPRk5lcFAHyEzLA9tC3MQ) | 34.2 MiB |
+| `Keepsake-Atelier-0.3.3-arm64.dmg` | [Download](https://gofile.io/d/e5lsHez0) | [Mirror](https://file.kiwi/7661db2c#Lhhn91nwINuiX3R0MPoAcA) | 35.4 MiB |
 | `Keepsake-Atelier-0.3.3-x64.dmg` | [Download](https://gofile.io/d/vp7DSwPf) | [Mirror](https://file.kiwi/2ed72e45#Olof90V9f3PRlIajpnJ2FA) | 38.8 MiB |
-| `keepsake-atelier-0.3.3-macos-arm64.tar.gz` | [Download](https://gofile.io/d/ZKeJU3w0) | [Mirror](https://file.kiwi/80603ee7#N75S2vOc6pWvd1vsuKlloQ) | 27.0 MiB |
+| `keepsake-atelier-0.3.3-macos-arm64.tar.gz` | [Download](https://gofile.io/d/JyJJZg90) | [Mirror](https://file.kiwi/8e722e61#92_T7IhAyf2Rf3dPPHc5bQ) | 2.7 MiB |
 | `keepsake-atelier-0.3.3-macos-x64.tar.gz` | [Download](https://gofile.io/d/1MiHA9QH) | [Mirror](https://file.kiwi/f42e30fb#KvaboU1k44rVdRGgokcfGg) | 30.0 MiB |
 | `keepsake-atelier-0.3.3-linux-x64.tar.gz` | [Download](https://gofile.io/d/SV1riqmU) | [Mirror](https://file.kiwi/0d3efa0f#81IloiMt3Ttt-7fTz6_nNQ) | 42.8 MiB |
 | `Keepsake-Atelier-0.3.3-linux-x64.AppImage` | [Download](https://gofile.io/d/MyymmE4F) | [Mirror](https://file.kiwi/7b68a6c5#rA2Rl8DF49KNkduonsSqlA) | 108.3 MiB |
