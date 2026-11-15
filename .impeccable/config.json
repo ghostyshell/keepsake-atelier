@@ -1,0 +1,44 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "overused-font",
+        "value": "fraunces",
+        "files": [
+          "docs/index.html"
+        ],
+        "createdAt": "2026-11-15T09:17:17.717Z",
+        "reason": "intentional editorial register: the Atelier serif and kicker system predate this task and carry the brand"
+      },
+      {
+        "rule": "overused-font",
+        "value": "inter",
+        "files": [
+          "docs/index.html"
+        ],
+        "createdAt": "2026-11-15T09:17:17.746Z",
+        "reason": "intentional editorial register: the Atelier serif and kicker system predate this task and carry the brand"
+      },
+      {
+        "rule": "hero-eyebrow-chip",
+        "value": "*",
+        "files": [
+          "docs/index.html"
+        ],
+        "createdAt": "2026-11-15T09:17:29.998Z",
+        "reason": "intentional editorial register: the Atelier serif headline and kicker system predate this task"
+      },
+      {
+        "rule": "italic-serif-display",
+        "value": "*",
+        "files": [
+          "docs/index.html"
+        ],
+        "createdAt": "2026-11-15T09:17:30.053Z",
+        "reason": "intentional editorial register: the Atelier serif headline and kicker system predate this task"
+      }
+    ]
+  }
+}
