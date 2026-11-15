@@ -4,7 +4,15 @@ All notable changes to Keepsake Atelier. Newest first.
 
 ## Unreleased
 
-Nothing yet.
+### Changed
+
+- **The site works on a phone and reads better in search.** The header gains a
+  real menu below 960px instead of dropping its links, every page carries a
+  canonical URL and SoftwareApplication structured data, and the page states
+  its background colour explicitly so contrast tools and readers agree.
+  The favicon is an SVG mark, the icon master is 60 KB instead of 247 KB, card
+  and feature tiles rise in on scroll through scroll-driven CSS, focus rings
+  are visible, and labels that sat at 10 to 11 px now clear 12 px.
 
 ## 0.3.3 - 2026-11-14
 

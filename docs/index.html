@@ -6,6 +6,7 @@
 <title>Keepsake Atelier - Blu-ray ripping and authoring</title>
 <meta name="description" content="Rip, author, verify and burn Blu-ray discs with native tools on macOS, Linux and Windows. AACS key recovery, UDF 2.50 images, authored BD-J menus, DVD-Video, 1:1 clones and an MCP server.">
 <meta name="theme-color" content="#070b13">
+<meta name="robots" content="index, follow, max-image-preview:large">
 <meta name="google-site-verification" content="Q90_T8LAnz_gisT6M1_0dTO8Uq3RZCZl7ID3rXvo1qw">
 <link rel="canonical" href="https://ghostyshell.github.io/keepsake-atelier/">
 <meta property="og:type" content="website">
@@ -14,12 +15,15 @@
 <meta property="og:description" content="Rip, author, verify and burn Blu-ray discs with native tooling on macOS, Linux and Windows. No MakeMKV, no subscription.">
 <meta property="og:url" content="https://ghostyshell.github.io/keepsake-atelier/">
 <meta property="og:image" content="https://ghostyshell.github.io/keepsake-atelier/site/og.jpg">
+<meta property="og:image:alt" content="Keepsake Atelier - Blu-ray ripping, authoring and burning on macOS, Linux and Windows">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Keepsake Atelier">
 <meta name="twitter:description" content="Blu-ray ripping and authoring, built on native tools.">
 <meta name="twitter:image" content="https://ghostyshell.github.io/keepsake-atelier/site/og.jpg">
-<link rel="icon" href="site/icon.png">
-<link rel="apple-touch-icon" href="site/icon.png">
+<link rel="icon" href="site/mark.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="site/icon-180.png">
 <link rel="manifest" href="site/site.webmanifest">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -51,6 +55,7 @@
       radial-gradient(1100px 600px at 82% -10%, rgba(232, 195, 106, .10), transparent 60%),
       radial-gradient(900px 500px at 8% 8%, rgba(120, 160, 255, .06), transparent 55%),
       var(--ink);
+    background-color: var(--ink);
     color: var(--text);
     font-family: var(--sans);
     font-size: 16px;
@@ -59,7 +64,9 @@
     text-rendering: optimizeLegibility;
   }
   a { color: inherit; }
-  img { max-width: 100%; display: block; }
+  img { max-width: 100%; display: block; height: auto; }
+  :target, section[id], footer[id] { scroll-margin-top: 84px; }
+  :focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; border-radius: 6px; }
   .wrap { width: min(var(--wrap), calc(100% - 40px)); margin: 0 auto; }
   .skip {
     position: absolute; left: -999px; top: 0; z-index: 100;
@@ -78,14 +85,25 @@
   .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
   .brand img { width: 34px; height: 34px; border-radius: 9px; box-shadow: 0 0 0 1px var(--line), 0 8px 24px rgba(0,0,0,.45); }
   .brand span { font-family: var(--serif); font-size: 20px; letter-spacing: .01em; }
-  .nav nav { margin-left: auto; display: flex; gap: 26px; }
+  .nav nav { margin-left: auto; display: flex; gap: 26px; align-items: center; }
   .nav nav a { color: var(--muted); text-decoration: none; font-size: 14px; }
   .nav nav a:hover, .nav nav a:focus-visible { color: var(--gold); }
   .nav .gh {
     border: 1px solid var(--line); border-radius: 999px; padding: 7px 14px;
     color: var(--text); text-decoration: none; font-size: 13px; white-space: nowrap;
+    margin-left: 4px;
   }
   .nav .gh:hover { border-color: var(--gold-deep); color: var(--gold); }
+  .nav-toggle {
+    display: none; margin-left: auto; width: 40px; height: 40px; padding: 10px;
+    flex-direction: column; justify-content: center; gap: 4px;
+    background: rgba(255,255,255,.02); border: 1px solid var(--line);
+    border-radius: 9px; cursor: pointer;
+  }
+  .nav-toggle span { display: block; height: 2px; border-radius: 2px; background: var(--text); transition: transform .18s ease, opacity .18s ease; }
+  .nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+  .nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+  .nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
 
   /* hero */
   .hero { padding: 86px 0 54px; }
@@ -109,12 +127,12 @@
     text-decoration: none; border: 1px solid transparent; transition: transform .15s ease, border-color .15s ease, background .15s ease;
   }
   .btn:hover { transform: translateY(-1px); }
-  .btn.primary { background: var(--gold); color: #161006; box-shadow: 0 10px 30px rgba(232,195,106,.16); }
+  .btn.primary { background: var(--gold); color: #161006; box-shadow: 0 10px 30px rgba(0,0,0,.38); }
   .btn.primary:hover { background: #f0cf7e; }
   .btn.ghost { border-color: var(--line); color: var(--text); }
   .btn.ghost:hover { border-color: var(--gold-deep); color: var(--gold); }
   .btn svg { width: 16px; height: 16px; }
-  .meta { font-family: var(--mono); font-size: 11.5px; color: var(--muted-2); letter-spacing: .04em; }
+  .meta { font-family: var(--mono); font-size: 12px; color: var(--muted-2); letter-spacing: .04em; }
   .meta b { color: var(--gold); font-weight: 500; }
   .hero-art { position: relative; display: grid; place-items: center; }
   .hero-art img {
@@ -164,7 +182,12 @@
   }
   .feature h3 { font-size: 14px; margin: 0 0 6px; }
   .feature p { margin: 0; color: var(--muted); font-size: 13.2px; line-height: 1.55; }
-  .feature .tag { font-family: var(--mono); font-size: 10px; color: var(--gold-deep); letter-spacing: .1em; text-transform: uppercase; display: block; margin-bottom: 10px; }
+  .feature .tag { font-family: var(--mono); font-size: 11px; color: var(--gold-deep); letter-spacing: .1em; text-transform: uppercase; display: block; margin-bottom: 10px; }
+  .feature { transition: border-color .18s ease, transform .18s ease; }
+  .feature:hover, .card:hover { border-color: var(--line); transform: translateY(-2px); }
+  .card { transition: border-color .18s ease, transform .18s ease; }
+  .card h3 a { text-decoration: none; }
+  .card h3 a:hover { color: var(--gold); text-decoration: underline; text-underline-offset: 3px; }
 
   /* steps */
   .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; counter-reset: step; }
@@ -189,7 +212,7 @@
     background: linear-gradient(180deg, rgba(232,195,106,.05), rgba(255,255,255,.01));
   }
   .artifact h3 { margin: 0 0 2px; font-size: 15px; }
-  .artifact .file { font-family: var(--mono); font-size: 11.5px; color: var(--muted-2); word-break: break-all; }
+  .artifact .file { font-family: var(--mono); font-size: 12px; color: var(--muted-2); word-break: break-all; }
   .artifact .row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
   .artifact a {
     text-decoration: none; font-size: 12.5px; font-weight: 600; padding: 8px 12px;
@@ -198,7 +221,7 @@
   .artifact a.primary { background: var(--gold); color: #161006; border-color: transparent; }
   .artifact a:hover { border-color: var(--gold-deep); color: var(--gold); }
   .artifact a.primary:hover { background: #f0cf7e; color: #161006; }
-  .artifact .hash { margin-top: 10px; font-family: var(--mono); font-size: 10.5px; color: var(--muted-2); word-break: break-all; }
+  .artifact .hash { margin-top: 10px; font-family: var(--mono); font-size: 11px; color: var(--muted-2); word-break: break-all; }
   .download-note { margin-top: 14px; font-size: 12.5px; color: var(--muted-2); }
   .download-note code { font-family: var(--mono); color: var(--muted); }
 
@@ -212,7 +235,7 @@
     margin-top: 14px; display: flex; gap: 8px; align-items: center;
     background: #070b13; border: 1px solid var(--line-soft); border-radius: 8px; padding: 9px 10px;
   }
-  .addr code { flex: 1 1 auto; min-width: 0; font-family: var(--mono); font-size: 10.5px; color: var(--muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .addr code { flex: 1 1 auto; min-width: 0; font-family: var(--mono); font-size: 11px; color: var(--muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
   .addr button { margin-left: auto; background: none; border: 0; color: var(--gold); cursor: pointer; font-size: 11px; font-family: var(--mono); }
 
   /* faq */
@@ -240,7 +263,12 @@
     .feature-grid { grid-template-columns: repeat(2, 1fr); }
     .strip ul { grid-template-columns: repeat(3, 1fr); }
     .grid-3, .steps, .downloads, .support { grid-template-columns: 1fr; }
-    .nav nav { display: none; }
+    .nav { flex-wrap: wrap; height: auto; padding: 12px 0; row-gap: 4px; }
+    .nav-toggle { display: flex; }
+    .nav nav { display: none; order: 4; width: 100%; flex-direction: column; align-items: stretch; gap: 0; margin-left: 0; }
+    .nav nav.open { display: flex; }
+    .nav nav a { padding: 11px 2px; font-size: 15px; border-top: 1px solid var(--line-soft); margin-top: 4px; }
+    .nav nav .gh { margin: 10px 0 2px; padding: 10px 14px; font-size: 14px; align-self: flex-start; }
   }
   @media (max-width: 540px) {
     .feature-grid { grid-template-columns: 1fr; }
@@ -250,7 +278,51 @@
     html { scroll-behavior: auto; }
     * { transition: none !important; }
   }
+  @media (prefers-reduced-motion: no-preference) {
+    .feature, .step, .card, .artifact {
+      animation: rise linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 20%;
+    }
+    @keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+  }
+  @media print {
+    .feature, .step, .card, .artifact { animation: none !important; opacity: 1 !important; transform: none !important; }
+  }
 </style>
+<noscript><style>
+  @media (max-width: 960px) {
+    .nav-toggle { display: none; }
+    #primary-nav { display: flex; flex-wrap: wrap; gap: 14px; order: 4; width: 100%; margin-left: 0; padding-top: 8px; }
+  }
+</style></noscript>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Keepsake Atelier",
+  "alternateName": "keepsake-atelier",
+  "applicationCategory": "MultimediaApplication",
+  "operatingSystem": "macOS, Linux, Windows",
+  "url": "https://ghostyshell.github.io/keepsake-atelier/",
+  "downloadUrl": "https://ghostyshell.github.io/keepsake-atelier/#downloads",
+  "license": "https://github.com/ghostyshell/keepsake-atelier/blob/main/LICENSE",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "author": { "@type": "Person", "name": "ghosty99", "url": "https://github.com/ghostyshell" },
+  "description": "Rip, author, verify and burn Blu-ray and DVD discs with native tooling: AACS key recovery, UDF 2.50 images, authored BD-J menus, 1:1 clones and an MCP server for agents.",
+  "image": "https://ghostyshell.github.io/keepsake-atelier/site/og.jpg",
+  "screenshot": "https://ghostyshell.github.io/keepsake-atelier/site/assets/menu.png",
+  "featureList": [
+    "Native AACS1 and AACS2 key recovery",
+    "Lossless remux to MKV or MP4 with PGS subtitles",
+    "UDF 2.50 image authoring",
+    "Authored BD-J menus from one generic Xlet",
+    "DVD-Video listing and ripping",
+    "1:1 Blu-ray clone and decrypted ISO export",
+    "MCP server and CLI for every capability"
+  ]
+}
+</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -258,17 +330,20 @@
 <header>
   <div class="wrap nav">
     <a class="brand" href="./">
-      <img src="site/icon.png" alt="">
+      <img src="site/icon-96.png" alt="" width="34" height="34">
       <span>Keepsake Atelier</span>
     </a>
-    <nav aria-label="Primary">
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Menu">
+      <span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
+    </button>
+    <nav id="primary-nav" aria-label="Primary">
       <a href="#features">Features</a>
       <a href="#workflow">Workflow</a>
       <a href="#downloads">Downloads</a>
       <a href="#guides">Guides</a>
       <a href="#support">Support</a>
+      <a class="gh" href="https://github.com/ghostyshell/keepsake-atelier">GitHub</a>
     </nav>
-    <a class="gh" href="https://github.com/ghostyshell/keepsake-atelier">GitHub</a>
   </div>
 </header>
 
@@ -291,7 +366,7 @@
         <p class="meta" id="hero-meta">macOS 12+ &middot; Linux x86_64 &middot; Windows x86_64 &middot; <b>MIT</b> &middot; builds on GoFile and file.kiwi</p>
       </div>
       <div class="hero-art">
-        <img src="site/icon.png" alt="Keepsake Atelier app icon: a small blue keepsake box holding a Blu-ray disc">
+        <img src="site/icon.png" width="512" height="512" alt="Keepsake Atelier app icon: a small blue keepsake box holding a Blu-ray disc">
         <span class="disc-ring" aria-hidden="true"></span>
       </div>
     </div>
@@ -363,7 +438,7 @@
         <p class="sub">One generic Xlet reads the disc's own title list at runtime. No per-disc Java compilation.</p>
       </div>
       <figure class="figure">
-        <img src="site/assets/menu.png" loading="lazy" decoding="async" alt="The authored BD-J menu showing First Episode, Second Episode and Third Episode with the first row highlighted">
+        <img src="site/assets/menu.png" width="660" height="500" loading="lazy" decoding="async" alt="The authored BD-J menu showing First Episode, Second Episode and Third Episode with the first row highlighted">
         <figcaption>authored BD-J menu, rendered by the Xlet and captured from a real JVM run</figcaption>
       </figure>
     </div>
@@ -556,6 +631,21 @@
         }
       })
       .catch(function () { /* keep the static fallback */ });
+  })();
+
+  // Mobile nav: a disclosure panel instead of hiding the links.
+  (function () {
+    var btn = document.querySelector(".nav-toggle");
+    var nav = document.getElementById("primary-nav");
+    if (!btn || !nav) return;
+    var set = function (open) {
+      btn.setAttribute("aria-expanded", String(open));
+      nav.classList.toggle("open", open);
+    };
+    btn.addEventListener("click", function () { set(btn.getAttribute("aria-expanded") !== "true"); });
+    nav.addEventListener("click", function (e) { if (e.target.closest("a")) set(false); });
+    document.addEventListener("keydown", function (e) { if (e.key === "Escape") set(false); });
+    matchMedia("(min-width: 961px)").addEventListener("change", function (e) { if (e.matches) set(false); });
   })();
 </script>
 </body>
