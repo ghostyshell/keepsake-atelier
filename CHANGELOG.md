@@ -12,7 +12,8 @@ All notable changes to Keepsake Atelier. Newest first.
   its background colour explicitly so contrast tools and readers agree.
   The favicon is an SVG mark, the icon master is 60 KB instead of 247 KB, card
   and feature tiles rise in on scroll through scroll-driven CSS, focus rings
-  are visible, and labels that sat at 10 to 11 px now clear 12 px.
+  are visible, and the download filename and version lines moved from 10.5 and
+  11.5 px to 12 px, with the 10 px captions raised to 11 px.
 
 ## 0.3.3 - 2026-11-14
 
