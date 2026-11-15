@@ -263,7 +263,6 @@ The test suite runs with `cargo test`.
 - [Platforms](docs/platforms.md) - what works on macOS, Linux and Windows.
 - [Roadmap](docs/roadmap.md) - phases and known limits.
 - [Interface design](DESIGN.md) - direction, tokens, motion and accessibility.
-- [Design skills](docs/design-skills.md) - the skill routing used for the UI.
 - [Site source](docs/site/README.md) - the GitHub Pages landing page.
 - [Contributing](CONTRIBUTING.md) - build, tests, style and the release process.
 

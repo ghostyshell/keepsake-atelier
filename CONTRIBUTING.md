@@ -79,10 +79,6 @@ job "Changelog and version bump" rejects a push that changes product files
 without both. A build must never be published under a version that already has
 artifacts; the publisher tags what it ships.
 
-Two project skills document the house style and the runbook:
-[`.claude/skills/changelog`](.claude/skills/changelog/SKILL.md) and
-[`.claude/skills/release`](.claude/skills/release/SKILL.md).
-
 ## Release process
 
 The maintainers publish with:

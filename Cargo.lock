@@ -2354,7 +2354,7 @@ dependencies = [
 
 [[package]]
 name = "keepsake-atelier"
-version = "0.3.3"
+version = "0.3.4"
 dependencies = [
  "clap",
  "keepsake-core",
@@ -2365,7 +2365,7 @@ dependencies = [
 
 [[package]]
 name = "keepsake-atelier-app"
-version = "0.3.3"
+version = "0.3.4"
 dependencies = [
  "keepsake-core",
  "regex",
@@ -2383,7 +2383,7 @@ dependencies = [
 
 [[package]]
 name = "keepsake-core"
-version = "0.3.3"
+version = "0.3.4"
 dependencies = [
  "aes",
  "cc",

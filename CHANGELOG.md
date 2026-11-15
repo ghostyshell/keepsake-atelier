@@ -4,6 +4,10 @@ All notable changes to Keepsake Atelier. Newest first.
 
 ## Unreleased
 
+Nothing yet.
+
+## 0.3.4 - 2026-11-16
+
 ### Changed
 
 - **The site works on a phone and reads better in search.** The header gains a
@@ -14,6 +18,10 @@ All notable changes to Keepsake Atelier. Newest first.
   and feature tiles rise in on scroll through scroll-driven CSS, focus rings
   are visible, and the download filename and version lines moved from 10.5 and
   11.5 px to 12 px, with the 10 px captions raised to 11 px.
+- **Contributor docs describe the process, not the tooling.** `DESIGN.md` lists
+  the four review passes instead of a skill table, `CONTRIBUTING.md` and the
+  README link the scripts and docs a contributor actually runs, and
+  `docs/design-skills.md` is gone.
 
 ## 0.3.3 - 2026-11-14
 
