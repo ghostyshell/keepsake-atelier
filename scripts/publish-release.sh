@@ -122,9 +122,9 @@ else
   DMG_NAME="Keepsake-Atelier-${V}-arm64.dmg"
   CLI_NAME="keepsake-atelier-${V}-macos-arm64.tar.gz"
 
-  hdiutil create -volname "Keepsake Atelier" -srcfolder "$APP" \
-    -ov -format UDZO "$DIST/$DMG_NAME" >> "$RUN/build.log" 2>&1 \
-    || die "hdiutil create failed - see $RUN/build.log"
+  "$REPO/scripts/make-dmg.sh" "$APP" "Keepsake Atelier" "$DIST/$DMG_NAME" \
+    "$REPO/app/src-tauri/dmg-background.png" >> "$RUN/build.log" 2>&1 \
+    || die "installer DMG failed - see $RUN/build.log"
 
   # The same self-contained payload as CI: the binary with rewritten dylibs,
   # the dlopen'ed AACS/BD+ stack, ffmpeg, ffprobe and the menu JAR.
