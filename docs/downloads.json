@@ -1,105 +1,26 @@
 {
-  "version": "0.3.3",
-  "updated": "2026-11-15",
+  "version": "0.3.4",
+  "updated": "2026-11-24",
   "artifacts": [
     {
       "label": "macOS (Apple Silicon)",
-      "name": "Keepsake-Atelier-0.3.3-arm64.dmg",
-      "version": "0.3.3",
+      "name": "Keepsake-Atelier-0.3.4-arm64.dmg",
+      "version": "0.3.4",
       "os": "macOS",
       "arch": "arm64",
-      "gofile": "https://gofile.io/d/aZqmRAEI",
-      "kiwi": "https://file.kiwi/5fd6d315#mqyqfgceZWBwRhBEH4igTQ",
-      "size": "34.2 MiB",
-      "sha256": "e5c21c2a863e7867faa253380b5e2427018b835de7500c159085f9d7d40ff800"
-    },
-    {
-      "label": "macOS (Intel)",
-      "name": "Keepsake-Atelier-0.3.3-x64.dmg",
-      "version": "0.3.3",
-      "os": "macOS",
-      "arch": "x64",
-      "gofile": "https://gofile.io/d/vp7DSwPf",
-      "kiwi": "https://file.kiwi/2ed72e45#Olof90V9f3PRlIajpnJ2FA",
-      "size": "38.8 MiB",
-      "sha256": "584326c8b67b937d541fc8ce5db2d00363ead79987f97f097a2b1ba149b3f53e"
+      "url": "https://covers.debrid.in/keepsake-atelier/releases/0.3.4/Keepsake-Atelier-0.3.4-arm64.dmg",
+      "size": "33.8 MiB",
+      "sha256": "e833377f8fb79d4efd6bc8b2d845f2e657139153431a43332513bbe827a40207"
     },
     {
       "label": "macOS (Apple Silicon, CLI)",
-      "name": "keepsake-atelier-0.3.3-macos-arm64.tar.gz",
-      "version": "0.3.3",
+      "name": "keepsake-atelier-0.3.4-macos-arm64.tar.gz",
+      "version": "0.3.4",
       "os": "macOS",
       "arch": "arm64",
-      "gofile": "https://gofile.io/d/REQQADim",
-      "kiwi": "https://file.kiwi/257eb33a#Vqk-wckaPCiRUxNtH6ZN3w",
-      "size": "27.0 MiB",
-      "sha256": "9a80295c7423eff88c34a3e3eb28453720e9950eb2d9a7a86032da5af56ef782"
-    },
-    {
-      "label": "macOS (Intel, CLI)",
-      "name": "keepsake-atelier-0.3.3-macos-x64.tar.gz",
-      "version": "0.3.3",
-      "os": "macOS",
-      "arch": "x64",
-      "gofile": "https://gofile.io/d/1MiHA9QH",
-      "kiwi": "https://file.kiwi/f42e30fb#KvaboU1k44rVdRGgokcfGg",
-      "size": "30.0 MiB",
-      "sha256": "135f1d9e03f84c410b723623f462c72f4b0ac7a8abac24a651f31497149a2bbd"
-    },
-    {
-      "label": "Linux (x86_64, CLI)",
-      "name": "keepsake-atelier-0.3.3-linux-x64.tar.gz",
-      "version": "0.3.3",
-      "os": "Linux",
-      "arch": "x86_64",
-      "gofile": "https://gofile.io/d/SV1riqmU",
-      "kiwi": "https://file.kiwi/0d3efa0f#81IloiMt3Ttt-7fTz6_nNQ",
-      "size": "42.8 MiB",
-      "sha256": "65818a695d269794eb788d503e139dac467542ad675d8e28493a32b6628a36f7"
-    },
-    {
-      "label": "Linux (x86_64, AppImage)",
-      "name": "Keepsake-Atelier-0.3.3-linux-x64.AppImage",
-      "version": "0.3.3",
-      "os": "Linux",
-      "arch": "x86_64",
-      "gofile": "https://gofile.io/d/MyymmE4F",
-      "kiwi": "https://file.kiwi/7b68a6c5#rA2Rl8DF49KNkduonsSqlA",
-      "size": "108.3 MiB",
-      "sha256": "d73f9263541cddc4ba72053edf28589d53f6e8e582281d08ac2fef895ead6c34"
-    },
-    {
-      "label": "Linux (x86_64, deb)",
-      "name": "Keepsake-Atelier-0.3.3-linux-x64.deb",
-      "version": "0.3.3",
-      "os": "Linux",
-      "arch": "x86_64",
-      "gofile": "https://gofile.io/d/bfqr8N3v",
-      "kiwi": "https://file.kiwi/694711ef#wnFQfi6zy_mIMt3Jc8hFFQ",
-      "size": "36.3 MiB",
-      "sha256": "585924d906571344e288b88cfb874c61489eec81a97653dd7f2a1cfc59b491a7"
-    },
-    {
-      "label": "Windows (x86_64, CLI)",
-      "name": "keepsake-atelier-0.3.3-windows-x64.zip",
-      "version": "0.3.3",
-      "os": "Windows",
-      "arch": "x86_64",
-      "gofile": "https://gofile.io/d/u3tXqKrR",
-      "kiwi": "https://file.kiwi/abddc9e8#dEiVpVpydrNt5VH8Oedg1g",
-      "size": "135.7 MiB",
-      "sha256": "2a5825e24b2e951b33c40bc8aef1a5702be91aae2c0f6e6bd5b00b165c781f6c"
-    },
-    {
-      "label": "Windows (x86_64, installer)",
-      "name": "Keepsake-Atelier-0.3.3-windows-x64-setup.exe",
-      "version": "0.3.3",
-      "os": "Windows",
-      "arch": "x86_64",
-      "gofile": "https://gofile.io/d/Ie4HrnC3",
-      "kiwi": "https://file.kiwi/a12d87bf#Sg33-DT2VPdfuUcECxSQ8w",
-      "size": "99.9 MiB",
-      "sha256": "b063274132be33f0d221fefd73564c534b734cdd2e1ef4a77dad0922b607d268"
+      "url": "https://covers.debrid.in/keepsake-atelier/releases/0.3.4/keepsake-atelier-0.3.4-macos-arm64.tar.gz",
+      "size": "27.6 MiB",
+      "sha256": "8b4fa1987bbc4e4b2b0503b270546a2cb0b597ad9fc36e575f973a8600d562ae"
     }
   ]
 }

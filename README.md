@@ -39,23 +39,17 @@ Windows from one Rust engine.
 ## Download
 
 <!-- downloads:start -->
-| Build | GoFile (primary) | file.kiwi (backup) | Size |
-| --- | --- | --- | --- |
-| `Keepsake-Atelier-0.3.3-arm64.dmg` | [Download](https://gofile.io/d/aZqmRAEI) | [Mirror](https://file.kiwi/5fd6d315#mqyqfgceZWBwRhBEH4igTQ) | 34.2 MiB |
-| `Keepsake-Atelier-0.3.3-x64.dmg` | [Download](https://gofile.io/d/vp7DSwPf) | [Mirror](https://file.kiwi/2ed72e45#Olof90V9f3PRlIajpnJ2FA) | 38.8 MiB |
-| `keepsake-atelier-0.3.3-macos-arm64.tar.gz` | [Download](https://gofile.io/d/REQQADim) | [Mirror](https://file.kiwi/257eb33a#Vqk-wckaPCiRUxNtH6ZN3w) | 27.0 MiB |
-| `keepsake-atelier-0.3.3-macos-x64.tar.gz` | [Download](https://gofile.io/d/1MiHA9QH) | [Mirror](https://file.kiwi/f42e30fb#KvaboU1k44rVdRGgokcfGg) | 30.0 MiB |
-| `keepsake-atelier-0.3.3-linux-x64.tar.gz` | [Download](https://gofile.io/d/SV1riqmU) | [Mirror](https://file.kiwi/0d3efa0f#81IloiMt3Ttt-7fTz6_nNQ) | 42.8 MiB |
-| `Keepsake-Atelier-0.3.3-linux-x64.AppImage` | [Download](https://gofile.io/d/MyymmE4F) | [Mirror](https://file.kiwi/7b68a6c5#rA2Rl8DF49KNkduonsSqlA) | 108.3 MiB |
-| `Keepsake-Atelier-0.3.3-linux-x64.deb` | [Download](https://gofile.io/d/bfqr8N3v) | [Mirror](https://file.kiwi/694711ef#wnFQfi6zy_mIMt3Jc8hFFQ) | 36.3 MiB |
-| `keepsake-atelier-0.3.3-windows-x64.zip` | [Download](https://gofile.io/d/u3tXqKrR) | [Mirror](https://file.kiwi/abddc9e8#dEiVpVpydrNt5VH8Oedg1g) | 135.7 MiB |
-| `Keepsake-Atelier-0.3.3-windows-x64-setup.exe` | [Download](https://gofile.io/d/Ie4HrnC3) | [Mirror](https://file.kiwi/a12d87bf#Sg33-DT2VPdfuUcECxSQ8w) | 99.9 MiB |
+| Build | Download | Size |
+| --- | --- | --- |
+| `Keepsake-Atelier-0.3.4-arm64.dmg` | [Download](https://covers.debrid.in/keepsake-atelier/releases/0.3.4/Keepsake-Atelier-0.3.4-arm64.dmg) | 33.8 MiB |
+| `keepsake-atelier-0.3.4-macos-arm64.tar.gz` | [Download](https://covers.debrid.in/keepsake-atelier/releases/0.3.4/keepsake-atelier-0.3.4-macos-arm64.tar.gz) | 27.6 MiB |
 <!-- downloads:end -->
 
 Apple Silicon or Intel on macOS 12 or newer, plus Linux x86_64 and Windows
-x86_64 builds. The links are refreshed weekly because GoFile expires free-tier
-files. The [project site](https://ghostyshell.github.io/keepsake-atelier/#downloads)
-reads the same manifest.
+x86_64 builds. The links point at versioned Cloudflare R2 objects, so they stay
+valid until the next release. The
+[project site](https://ghostyshell.github.io/keepsake-atelier/#downloads) reads
+the same manifest.
 
 The DMG and the macOS CLI tarball are self-contained: libbluray, libaacs,
 libbdplus and their dependencies are inside, built with a macOS 12.0 deployment
@@ -226,10 +220,11 @@ ffmpeg is used only for muxing and encoding, never decryption.
 
 ## Publishing
 
-Releases are published to GoFile and mirrored to file.kiwi. A launchd job
-rebuilds the current version, re-uploads the artifacts, repoints
-`docs/downloads.json` and the README table, commits the change and cleans up the
-local build. See [docs/publishing.md](docs/publishing.md).
+Releases are published to Cloudflare R2. A launchd job checks the live feed
+and, only when the repo version is ahead, rebuilds it, uploads the artifacts,
+repoints `docs/downloads.json` and the README table, commits, prunes older R2
+versions and cleans up the local build. See
+[docs/publishing.md](docs/publishing.md).
 
 ```sh
 scripts/publish-release.sh          # build, upload, patch links, push
