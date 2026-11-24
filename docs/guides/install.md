@@ -12,14 +12,13 @@
 
 ## Download
 
-Grab the latest DMG from one of the mirrors. The README and the
+Grab the latest DMG from the download table. The README and the
 [project site](https://ghostyshell.github.io/keepsake-atelier/#downloads) always
 carry the current links:
 
-- **GoFile** is the primary mirror.
-- **file.kiwi** is the encrypted backup mirror.
+- Builds are hosted on **Cloudflare R2** (public at `covers.debrid.in`).
 
-Links are refreshed weekly because GoFile expires free-tier files.
+Each download URL points at a versioned object, so it stays valid until the next release.
 
 ## Install
 
