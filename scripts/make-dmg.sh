@@ -31,7 +31,12 @@ fi
 
 TMP=$(mktemp -u).dmg
 hdiutil create -srcfolder "$STAGE" -volname "$VOL" -fs HFS+ -format UDRW -ov "$TMP" >/dev/null
-MNT=$(hdiutil attach -readwrite -noverify -noautoopen "$TMP" | awk '/^\/dev\/disk/{print $3; exit}')
+# The mount point contains spaces ("/Volumes/Keepsake Atelier"), so take
+# everything after the device and type columns, not just field 3.
+# The first output line is the whole disk and has no mount point; take the
+# first line that has one, and keep the spaces in "/Volumes/<name>".
+MNT=$(hdiutil attach -readwrite -noverify -noautoopen "$TMP" \
+  | awk '$1 ~ /^\/dev\/disk/ && NF >= 3 { sub(/^[^[:space:]]+[[:space:]]+[^[:space:]]+[[:space:]]+/, ""); print; exit }')
 if [ -n "$BG" ] && [ -f "$BG" ]; then
   APPNAME="$APPNAME" VOLUME_NAME="$VOL" osascript <<'OSA' 2>/dev/null || true
 set appName to system attribute "APPNAME"
@@ -59,7 +64,10 @@ end tell
 OSA
 fi
 sync
-hdiutil detach "$MNT" >/dev/null 2>&1 || true
+# A Finder-held mount refuses a polite detach; force it, or the next build
+# stacks another "/Volumes/<name> N" and hdiutil convert runs out of room.
+hdiutil detach "$MNT" >/dev/null 2>&1 \
+  || hdiutil detach -force "$MNT" >/dev/null 2>&1 || true
 hdiutil convert "$TMP" -format UDZO -o "$OUT" >/dev/null
 rm -rf "$STAGE" "$TMP"
 echo "built $OUT (app + Applications link + Read Me + background)"

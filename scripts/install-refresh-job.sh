@@ -54,7 +54,7 @@ fi
 
 [ -d "$REPO" ] || { echo "no repo at $REPO" >&2; exit 1; }
 [ -f "$REPO/scripts/refresh-release-links.sh" ] || { echo "missing refresh script in $REPO" >&2; exit 1; }
-[ -f "$REPO/.gofile-io-token" ] || echo "warning: $REPO/.gofile-io-token is missing" >&2
+[ -f "$HOME/.r2.env" ] || echo "warning: ~/.r2.env (R2 S3 keys) is missing" >&2
 
 mkdir -p "$HOME/Library/LaunchAgents"
 python3 - "$PLIST" "$LABEL" "$REPO" "$WEEKDAY" "$HOUR" "$MINUTE" <<'PY'

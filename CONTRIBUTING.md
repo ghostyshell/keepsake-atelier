@@ -87,8 +87,9 @@ The maintainers publish with:
 scripts/publish-release.sh
 ```
 
-That builds the DMG and CLI tarball, uploads to GoFile and file.kiwi, patches the
-links, commits and cleans up. The weekly launchd job runs the same path. See
+That builds the DMG and CLI tarball, uploads to Cloudflare R2, patches the
+links, commits and cleans up. The launchd job runs the same path when the
+version is ahead of the live feed. See
 [docs/publishing.md](docs/publishing.md).
 
 ## Reporting a security issue

@@ -363,7 +363,7 @@
           <a class="btn ghost" href="#guides">Read the guides</a>
           <a class="btn ghost" href="https://discord.gg/SUaUrVGj5f">Discord</a>
         </div>
-        <p class="meta" id="hero-meta">macOS 12+ &middot; Linux x86_64 &middot; Windows x86_64 &middot; <b>MIT</b> &middot; builds on GoFile and file.kiwi</p>
+        <p class="meta" id="hero-meta">macOS 12+ &middot; Linux x86_64 &middot; Windows x86_64 &middot; <b>MIT</b> &middot; builds on Cloudflare R2</p>
       </div>
       <div class="hero-art">
         <img src="site/icon.png" width="512" height="512" alt="Keepsake Atelier app icon: a small blue keepsake box holding a Blu-ray disc">
@@ -451,7 +451,7 @@
           <p class="kicker">Downloads</p>
           <h2>Take a build.</h2>
         </div>
-        <p class="sub" id="downloads-updated">Builds are mirrored to GoFile and file.kiwi. Links are refreshed weekly, because free tiers expire.</p>
+        <p class="sub" id="downloads-updated">Builds are hosted on Cloudflare R2. A link stays valid until the next version.</p>
       </div>
       <div class="downloads" id="downloads-grid" aria-live="polite">
         <div class="artifact">
@@ -605,15 +605,10 @@
           card.appendChild(el("h3", null, a.label || a.name));
           card.appendChild(el("p", "file", a.name));
           var row = el("div", "row");
-          if (a.gofile) {
-            var g = el("a", "primary", "GoFile");
-            g.href = a.gofile; g.rel = "noopener"; g.target = "_blank";
+          if (a.url) {
+            var g = el("a", "primary", "Download");
+            g.href = a.url; g.rel = "noopener"; g.target = "_blank";
             row.appendChild(g);
-          }
-          if (a.kiwi) {
-            var k = el("a", null, "file.kiwi backup");
-            k.href = a.kiwi; k.rel = "noopener"; k.target = "_blank";
-            row.appendChild(k);
           }
           card.appendChild(row);
           if (a.sha256) {
@@ -627,7 +622,7 @@
         });
         var note = document.getElementById("downloads-updated");
         if (note && data.updated) {
-          note.textContent = "Last refreshed " + data.updated + ". GoFile primary, file.kiwi backup. Links are refreshed weekly.";
+          note.textContent = "Published " + data.updated + " on Cloudflare R2. Links stay valid until the next version.";
         }
       })
       .catch(function () { /* keep the static fallback */ });

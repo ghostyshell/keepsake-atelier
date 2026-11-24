@@ -4,7 +4,12 @@ All notable changes to Keepsake Atelier. Newest first.
 
 ## Unreleased
 
-Nothing yet.
+### Changed
+
+- Downloads are hosted on Cloudflare R2 under versioned, immutable keys, so a
+  link stays valid until the next version. The weekly GoFile/file.kiwi re-upload
+  is gone: the scheduled job now only checks the live feed for a version bump,
+  and each publish prunes R2 versions older than the previous one.
 
 ## 0.3.4 - 2026-11-16
 

@@ -2,13 +2,25 @@
 # Weekly entry point for the release mirror refresh.
 #
 # The real work lives in publish-release.sh: rebuild the current version,
-# re-upload to GoFile and file.kiwi, repoint docs/downloads.json and the README
-# table, commit, and remove the local artifacts. This wrapper exists so launchd
-# can call one stable path.
+# upload to Cloudflare R2, repoint docs/downloads.json and the README table,
+# commit, prune older R2 versions, and remove the local artifacts. This wrapper
+# exists so launchd can call one stable path.
 set -euo pipefail
 SELF=$(cd "$(dirname "$0")" && pwd)
 REPO=${KEEPSAKE_REPO:-$(cd "$SELF/.." && pwd)}
 
 cd "$REPO"
-printf '[%s] refresh start (%s)\n' "$(date '+%F %T')" "$REPO"
+
+# R2 links never expire, so there is nothing to renew on a timer. Publish only
+# when the repo version is ahead of the live feed; FORCE=1 overrides.
+v=$(python3 -c 'import json;print(json.load(open("app/src-tauri/tauri.conf.json"))["version"])')
+live=$(curl -fsS "https://ghostyshell.github.io/keepsake-atelier/downloads.json?v=$(date +%s)" 2>/dev/null \
+  | python3 -c 'import json,sys
+try: print(json.load(sys.stdin).get("version",""))
+except Exception: print("")' 2>/dev/null || true)
+if [ "${FORCE:-0}" != 1 ] && [ "$live" = "$v" ]; then
+  printf '[%s] %s is already live; nothing to publish\n' "$(date '+%F %T')" "$v"
+  exit 0
+fi
+printf '[%s] publishing %s (live %s)\n' "$(date '+%F %T')" "$v" "${live:-unknown}"
 exec "$REPO/scripts/publish-release.sh" "$@"

@@ -3,8 +3,8 @@
 
 Usage: python3 -I scripts/patch-release-links.py <links.txt>
 
-`links.txt` rows are `name | gofile-url | kiwi-url | size | sha256`, one per
-artifact. This script writes:
+`links.txt` rows are `name | url | size | sha256`, one per artifact (the URL
+is the versioned Cloudflare R2 object). This script writes:
 
   - docs/downloads.json (the GitHub Pages site reads it at runtime)
   - the generated table between <!-- downloads:start/end --> in README.md
@@ -98,17 +98,14 @@ def load(path):
     rows = {}
     for line in Path(path).read_text().splitlines():
         parts = [p.strip() for p in line.split("|")]
-        if len(parts) < 5:
+        if len(parts) < 4:
             continue
-        name, gofile, kiwi, size, sha = parts[:5]
+        name, url, size, sha = parts[:4]
         if not name:
-            continue
-        if not (gofile.startswith("http") or kiwi.startswith("http")):
             continue
         rows[name] = {
             "name": name,
-            "gofile": "" if gofile == "EMPTY" else gofile,
-            "kiwi": "" if kiwi == "EMPTY" else kiwi,
+            "url": "" if url == "EMPTY" else url,
             "size": "" if size == "EMPTY" else size,
             "sha256": "" if sha == "EMPTY" else sha,
         }
@@ -165,8 +162,7 @@ def build_manifest(rows, version, preserved=None):
                 "version": version,
                 "os": osname,
                 "arch": arch,
-                "gofile": row.get("gofile", ""),
-                "kiwi": row.get("kiwi", ""),
+                "url": row.get("url", ""),
                 "size": row.get("size", ""),
                 "sha256": row.get("sha256", ""),
             }
@@ -181,15 +177,14 @@ def build_manifest(rows, version, preserved=None):
 
 def table(manifest):
     lines = [
-        "| Build | GoFile (primary) | file.kiwi (backup) | Size |",
-        "| --- | --- | --- | --- |",
+        "| Build | Download | Size |",
+        "| --- | --- | --- |",
     ]
     for art in manifest["artifacts"]:
         name = art["name"]
-        gofile = f"[Download]({art['gofile']})" if art["gofile"] else "pending"
-        kiwi = f"[Mirror]({art['kiwi']})" if art["kiwi"] else "pending"
+        url = f"[Download]({art['url']})" if art["url"] else "pending"
         size = art["size"] or "pending"
-        lines.append(f"| `{name}` | {gofile} | {kiwi} | {size} |")
+        lines.append(f"| `{name}` | {url} | {size} |")
     return "\n".join(lines)
 
 
@@ -238,12 +233,11 @@ def main(argv):
             continue
         if identity(name) in new_ids:
             continue
-        if not (art.get("gofile") or art.get("kiwi")):
+        if not art.get("url"):
             continue
         preserved[name] = {
             "name": name,
-            "gofile": art.get("gofile", ""),
-            "kiwi": art.get("kiwi", ""),
+            "url": art.get("url", ""),
             "size": art.get("size", ""),
             "sha256": art.get("sha256", ""),
         }
@@ -257,9 +251,7 @@ def main(argv):
     print(f"wrote {MANIFEST.relative_to(ROOT)} and the README table for {version}")
     for art in manifest["artifacts"]:
         print(
-            f"  {art['name']}: "
-            f"gofile={'yes' if art['gofile'] else 'no'} "
-            f"kiwi={'yes' if art['kiwi'] else 'no'}"
+            f"  {art['name']}: url={'yes' if art['url'] else 'no'}"
         )
 
 
@@ -267,15 +259,13 @@ def demo():
     rows = {
         "Keepsake-Atelier-2.0.0-arm64.dmg": {
             "name": "Keepsake-Atelier-2.0.0-arm64.dmg",
-            "gofile": "https://gofile.io/d/NEW",
-            "kiwi": "",
+            "url": "https://covers.debrid.in/keepsake-atelier/releases/2.0.0/a.dmg",
             "size": "32.1 MiB",
             "sha256": "abc",
         },
         "keepsake-atelier-2.0.0-arm64.tar.gz": {
             "name": "keepsake-atelier-2.0.0-arm64.tar.gz",
-            "gofile": "https://gofile.io/d/CLI",
-            "kiwi": "https://file.kiwi/x",
+            "url": "https://covers.debrid.in/keepsake-atelier/releases/2.0.0/b.tar.gz",
             "size": "8.4 MiB",
             "sha256": "def",
         },
@@ -285,8 +275,8 @@ def demo():
     assert m["artifacts"][0]["label"] == "macOS (Apple Silicon)"
     assert m["artifacts"][1]["label"] == "macOS (Apple Silicon, CLI)"
     t = table(m)
-    assert "| `Keepsake-Atelier-2.0.0-arm64.dmg` | [Download](https://gofile.io/d/NEW) | pending | 32.1 MiB |" in t
-    assert "[Mirror](https://file.kiwi/x)" in t
+    assert "| `Keepsake-Atelier-2.0.0-arm64.dmg` | [Download](https://covers.debrid.in/keepsake-atelier/releases/2.0.0/a.dmg) | 32.1 MiB |" in t, t
+    assert "[Download](https://covers.debrid.in/keepsake-atelier/releases/2.0.0/b.tar.gz)" in t, t
     print("selftest OK")
 
 
