@@ -13,6 +13,16 @@
       "sha256": "e833377f8fb79d4efd6bc8b2d845f2e657139153431a43332513bbe827a40207"
     },
     {
+      "label": "macOS (Intel)",
+      "name": "Keepsake-Atelier-0.3.4-x64.dmg",
+      "version": "0.3.4",
+      "os": "macOS",
+      "arch": "x64",
+      "url": "https://covers.debrid.in/keepsake-atelier/releases/0.3.4/Keepsake-Atelier-0.3.4-x64.dmg",
+      "size": "38.8 MiB",
+      "sha256": "aed3e0a9669e9abf7474f5c6f29b209f542573945d51286d71a06344566ae875"
+    },
+    {
       "label": "macOS (Apple Silicon, CLI)",
       "name": "keepsake-atelier-0.3.4-macos-arm64.tar.gz",
       "version": "0.3.4",
@@ -21,6 +31,16 @@
       "url": "https://covers.debrid.in/keepsake-atelier/releases/0.3.4/keepsake-atelier-0.3.4-macos-arm64.tar.gz",
       "size": "27.6 MiB",
       "sha256": "8b4fa1987bbc4e4b2b0503b270546a2cb0b597ad9fc36e575f973a8600d562ae"
+    },
+    {
+      "label": "macOS (Intel, CLI)",
+      "name": "keepsake-atelier-0.3.4-macos-x64.tar.gz",
+      "version": "0.3.4",
+      "os": "macOS",
+      "arch": "x64",
+      "url": "https://covers.debrid.in/keepsake-atelier/releases/0.3.4/keepsake-atelier-0.3.4-macos-x64.tar.gz",
+      "size": "30.0 MiB",
+      "sha256": "bb2acf8e3a7477b5d61e472400de945595f08b3fbfac539b6a4cd9b8fee0bd1e"
     },
     {
       "label": "Linux (x86_64, CLI)",
@@ -63,34 +83,14 @@
       "sha256": "47962fcd04bedd5b36ef505833ae63ef838f1e9507b1a91c08c891866137343b"
     },
     {
-      "label": "ffmpeg.exe",
-      "name": "ffmpeg.exe",
+      "label": "Windows (x86_64, installer)",
+      "name": "Keepsake-Atelier-0.3.4-windows-x64-setup.exe",
       "version": "0.3.4",
-      "os": "macOS",
-      "arch": "arm64",
-      "url": "https://covers.debrid.in/keepsake-atelier/releases/0.3.4/ffmpeg.exe",
-      "size": "164.6 MiB",
-      "sha256": "d370a72ed841d1b4758db85ba64b9d4d74538f239a8f885f43db2ea5ff65f572"
-    },
-    {
-      "label": "ffprobe.exe",
-      "name": "ffprobe.exe",
-      "version": "0.3.4",
-      "os": "macOS",
-      "arch": "arm64",
-      "url": "https://covers.debrid.in/keepsake-atelier/releases/0.3.4/ffprobe.exe",
-      "size": "164.4 MiB",
-      "sha256": "1e5bd430bd2571cff4ef97b2423c7c418ea87eb3ef44062cf52198ee780c8d56"
-    },
-    {
-      "label": "keepsake-atelier.exe",
-      "name": "keepsake-atelier.exe",
-      "version": "0.3.4",
-      "os": "macOS",
-      "arch": "arm64",
-      "url": "https://covers.debrid.in/keepsake-atelier/releases/0.3.4/keepsake-atelier.exe",
-      "size": "7.4 MiB",
-      "sha256": "242bec19edc94654c48d36729d3b7a6f1ce2456ca5b1c80c93ce795284d4a09f"
+      "os": "Windows",
+      "arch": "x86_64",
+      "url": "https://covers.debrid.in/keepsake-atelier/releases/0.3.4/Keepsake-Atelier-0.3.4-windows-x64-setup.exe",
+      "size": "101.0 MiB",
+      "sha256": "020d4f06d7069d1d336daf0409723eebfbae9b4d28469a62fa3ada0d70aec96f"
     }
   ]
 }
