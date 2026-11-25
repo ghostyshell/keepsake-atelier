@@ -1,96 +1,96 @@
 {
-  "version": "0.3.4",
-  "updated": "2026-11-24",
+  "version": "0.3.5",
+  "updated": "2026-11-26",
   "artifacts": [
     {
       "label": "macOS (Apple Silicon)",
-      "name": "Keepsake-Atelier-0.3.4-arm64.dmg",
-      "version": "0.3.4",
+      "name": "Keepsake-Atelier-0.3.5-arm64.dmg",
+      "version": "0.3.5",
       "os": "macOS",
       "arch": "arm64",
-      "url": "https://covers.debrid.in/keepsake-atelier/releases/0.3.4/Keepsake-Atelier-0.3.4-arm64.dmg",
-      "size": "33.8 MiB",
-      "sha256": "e833377f8fb79d4efd6bc8b2d845f2e657139153431a43332513bbe827a40207"
+      "url": "https://covers.debrid.in/keepsake-atelier/releases/0.3.5/Keepsake-Atelier-0.3.5-arm64.dmg",
+      "size": "34.2 MiB",
+      "sha256": "b2c8e2d6397776b0f94431bdbbde7e9a4307318321e8b77db87c4b1a72849d24"
     },
     {
       "label": "macOS (Intel)",
-      "name": "Keepsake-Atelier-0.3.4-x64.dmg",
-      "version": "0.3.4",
+      "name": "Keepsake-Atelier-0.3.5-x64.dmg",
+      "version": "0.3.5",
       "os": "macOS",
       "arch": "x64",
-      "url": "https://covers.debrid.in/keepsake-atelier/releases/0.3.4/Keepsake-Atelier-0.3.4-x64.dmg",
+      "url": "https://covers.debrid.in/keepsake-atelier/releases/0.3.5/Keepsake-Atelier-0.3.5-x64.dmg",
       "size": "38.8 MiB",
-      "sha256": "aed3e0a9669e9abf7474f5c6f29b209f542573945d51286d71a06344566ae875"
+      "sha256": "2133d3576789a4f427e8d6678d40bee27176fbad79aa1a7868d253a73f6589ef"
     },
     {
       "label": "macOS (Apple Silicon, CLI)",
-      "name": "keepsake-atelier-0.3.4-macos-arm64.tar.gz",
-      "version": "0.3.4",
+      "name": "keepsake-atelier-0.3.5-macos-arm64.tar.gz",
+      "version": "0.3.5",
       "os": "macOS",
       "arch": "arm64",
-      "url": "https://covers.debrid.in/keepsake-atelier/releases/0.3.4/keepsake-atelier-0.3.4-macos-arm64.tar.gz",
-      "size": "27.6 MiB",
-      "sha256": "8b4fa1987bbc4e4b2b0503b270546a2cb0b597ad9fc36e575f973a8600d562ae"
+      "url": "https://covers.debrid.in/keepsake-atelier/releases/0.3.5/keepsake-atelier-0.3.5-macos-arm64.tar.gz",
+      "size": "27.0 MiB",
+      "sha256": "6f179f55227d192cf876387d4284b9ddff69f34acf78917010faad08d130c41e"
     },
     {
       "label": "macOS (Intel, CLI)",
-      "name": "keepsake-atelier-0.3.4-macos-x64.tar.gz",
-      "version": "0.3.4",
+      "name": "keepsake-atelier-0.3.5-macos-x64.tar.gz",
+      "version": "0.3.5",
       "os": "macOS",
       "arch": "x64",
-      "url": "https://covers.debrid.in/keepsake-atelier/releases/0.3.4/keepsake-atelier-0.3.4-macos-x64.tar.gz",
+      "url": "https://covers.debrid.in/keepsake-atelier/releases/0.3.5/keepsake-atelier-0.3.5-macos-x64.tar.gz",
       "size": "30.0 MiB",
-      "sha256": "bb2acf8e3a7477b5d61e472400de945595f08b3fbfac539b6a4cd9b8fee0bd1e"
+      "sha256": "817036e54ab3886721eefcb4463d77f411e81796c3956de8789f9b42126859c8"
     },
     {
       "label": "Linux (x86_64, CLI)",
-      "name": "keepsake-atelier-0.3.4-linux-x64.tar.gz",
-      "version": "0.3.4",
+      "name": "keepsake-atelier-0.3.5-linux-x64.tar.gz",
+      "version": "0.3.5",
       "os": "Linux",
       "arch": "x86_64",
-      "url": "https://covers.debrid.in/keepsake-atelier/releases/0.3.4/keepsake-atelier-0.3.4-linux-x64.tar.gz",
+      "url": "https://covers.debrid.in/keepsake-atelier/releases/0.3.5/keepsake-atelier-0.3.5-linux-x64.tar.gz",
       "size": "42.8 MiB",
-      "sha256": "8ae70ac5ec2b61de959b0105618dc0ef4e98c44861fd35f36a359f2bc9922aa2"
+      "sha256": "b6240e12d728aaa7effc83e10731da62ec41162dd0e7e98ad3ef38abbd1153f7"
     },
     {
       "label": "Linux (x86_64, AppImage)",
-      "name": "Keepsake-Atelier-0.3.4-linux-x64.AppImage",
-      "version": "0.3.4",
+      "name": "Keepsake-Atelier-0.3.5-linux-x64.AppImage",
+      "version": "0.3.5",
       "os": "Linux",
       "arch": "x86_64",
-      "url": "https://covers.debrid.in/keepsake-atelier/releases/0.3.4/Keepsake-Atelier-0.3.4-linux-x64.AppImage",
+      "url": "https://covers.debrid.in/keepsake-atelier/releases/0.3.5/Keepsake-Atelier-0.3.5-linux-x64.AppImage",
       "size": "108.3 MiB",
-      "sha256": "ee1ee027a5af08364d64cd99d0fe95cac57a66199a2fd8c64a8e26818747eee5"
+      "sha256": "1b1e0c63e64c005d7cd25aa181a085b83f89a600c92a7af7a311d4f084588454"
     },
     {
       "label": "Linux (x86_64, deb)",
-      "name": "Keepsake-Atelier-0.3.4-linux-x64.deb",
-      "version": "0.3.4",
+      "name": "Keepsake-Atelier-0.3.5-linux-x64.deb",
+      "version": "0.3.5",
       "os": "Linux",
       "arch": "x86_64",
-      "url": "https://covers.debrid.in/keepsake-atelier/releases/0.3.4/Keepsake-Atelier-0.3.4-linux-x64.deb",
+      "url": "https://covers.debrid.in/keepsake-atelier/releases/0.3.5/Keepsake-Atelier-0.3.5-linux-x64.deb",
       "size": "36.3 MiB",
-      "sha256": "bda4aab877862d77166d08f2736c31108517d0ca98e9582faf083ea459a3ec13"
+      "sha256": "05f0edbef6162ab65b0ed53fe49999808ef6265118b1cfd0d267b454db404eb8"
     },
     {
       "label": "Windows (x86_64, CLI)",
-      "name": "keepsake-atelier-0.3.4-windows-x64.zip",
-      "version": "0.3.4",
+      "name": "keepsake-atelier-0.3.5-windows-x64.zip",
+      "version": "0.3.5",
       "os": "Windows",
       "arch": "x86_64",
-      "url": "https://covers.debrid.in/keepsake-atelier/releases/0.3.4/keepsake-atelier-0.3.4-windows-x64.zip",
-      "size": "137.9 MiB",
-      "sha256": "47962fcd04bedd5b36ef505833ae63ef838f1e9507b1a91c08c891866137343b"
+      "url": "https://covers.debrid.in/keepsake-atelier/releases/0.3.5/keepsake-atelier-0.3.5-windows-x64.zip",
+      "size": "138.0 MiB",
+      "sha256": "de2bc37dab35fdd2ee745cebe15a6bd0daa45547e23659732e5e170965ade2c8"
     },
     {
       "label": "Windows (x86_64, installer)",
-      "name": "Keepsake-Atelier-0.3.4-windows-x64-setup.exe",
-      "version": "0.3.4",
+      "name": "Keepsake-Atelier-0.3.5-windows-x64-setup.exe",
+      "version": "0.3.5",
       "os": "Windows",
       "arch": "x86_64",
-      "url": "https://covers.debrid.in/keepsake-atelier/releases/0.3.4/Keepsake-Atelier-0.3.4-windows-x64-setup.exe",
+      "url": "https://covers.debrid.in/keepsake-atelier/releases/0.3.5/Keepsake-Atelier-0.3.5-windows-x64-setup.exe",
       "size": "101.0 MiB",
-      "sha256": "020d4f06d7069d1d336daf0409723eebfbae9b4d28469a62fa3ada0d70aec96f"
+      "sha256": "940fd4a78bea5d628d0928d7b67f54b83e5ddb4be232bce0e42f84529db68895"
     }
   ]
 }

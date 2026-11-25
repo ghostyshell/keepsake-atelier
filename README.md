@@ -41,15 +41,15 @@ Windows from one Rust engine.
 <!-- downloads:start -->
 | Build | Download | Size |
 | --- | --- | --- |
-| `Keepsake-Atelier-0.3.4-arm64.dmg` | [Download](https://covers.debrid.in/keepsake-atelier/releases/0.3.4/Keepsake-Atelier-0.3.4-arm64.dmg) | 33.8 MiB |
-| `Keepsake-Atelier-0.3.4-x64.dmg` | [Download](https://covers.debrid.in/keepsake-atelier/releases/0.3.4/Keepsake-Atelier-0.3.4-x64.dmg) | 38.8 MiB |
-| `keepsake-atelier-0.3.4-macos-arm64.tar.gz` | [Download](https://covers.debrid.in/keepsake-atelier/releases/0.3.4/keepsake-atelier-0.3.4-macos-arm64.tar.gz) | 27.6 MiB |
-| `keepsake-atelier-0.3.4-macos-x64.tar.gz` | [Download](https://covers.debrid.in/keepsake-atelier/releases/0.3.4/keepsake-atelier-0.3.4-macos-x64.tar.gz) | 30.0 MiB |
-| `keepsake-atelier-0.3.4-linux-x64.tar.gz` | [Download](https://covers.debrid.in/keepsake-atelier/releases/0.3.4/keepsake-atelier-0.3.4-linux-x64.tar.gz) | 42.8 MiB |
-| `Keepsake-Atelier-0.3.4-linux-x64.AppImage` | [Download](https://covers.debrid.in/keepsake-atelier/releases/0.3.4/Keepsake-Atelier-0.3.4-linux-x64.AppImage) | 108.3 MiB |
-| `Keepsake-Atelier-0.3.4-linux-x64.deb` | [Download](https://covers.debrid.in/keepsake-atelier/releases/0.3.4/Keepsake-Atelier-0.3.4-linux-x64.deb) | 36.3 MiB |
-| `keepsake-atelier-0.3.4-windows-x64.zip` | [Download](https://covers.debrid.in/keepsake-atelier/releases/0.3.4/keepsake-atelier-0.3.4-windows-x64.zip) | 137.9 MiB |
-| `Keepsake-Atelier-0.3.4-windows-x64-setup.exe` | [Download](https://covers.debrid.in/keepsake-atelier/releases/0.3.4/Keepsake-Atelier-0.3.4-windows-x64-setup.exe) | 101.0 MiB |
+| `Keepsake-Atelier-0.3.5-arm64.dmg` | [Download](https://covers.debrid.in/keepsake-atelier/releases/0.3.5/Keepsake-Atelier-0.3.5-arm64.dmg) | 34.2 MiB |
+| `Keepsake-Atelier-0.3.5-x64.dmg` | [Download](https://covers.debrid.in/keepsake-atelier/releases/0.3.5/Keepsake-Atelier-0.3.5-x64.dmg) | 38.8 MiB |
+| `keepsake-atelier-0.3.5-macos-arm64.tar.gz` | [Download](https://covers.debrid.in/keepsake-atelier/releases/0.3.5/keepsake-atelier-0.3.5-macos-arm64.tar.gz) | 27.0 MiB |
+| `keepsake-atelier-0.3.5-macos-x64.tar.gz` | [Download](https://covers.debrid.in/keepsake-atelier/releases/0.3.5/keepsake-atelier-0.3.5-macos-x64.tar.gz) | 30.0 MiB |
+| `keepsake-atelier-0.3.5-linux-x64.tar.gz` | [Download](https://covers.debrid.in/keepsake-atelier/releases/0.3.5/keepsake-atelier-0.3.5-linux-x64.tar.gz) | 42.8 MiB |
+| `Keepsake-Atelier-0.3.5-linux-x64.AppImage` | [Download](https://covers.debrid.in/keepsake-atelier/releases/0.3.5/Keepsake-Atelier-0.3.5-linux-x64.AppImage) | 108.3 MiB |
+| `Keepsake-Atelier-0.3.5-linux-x64.deb` | [Download](https://covers.debrid.in/keepsake-atelier/releases/0.3.5/Keepsake-Atelier-0.3.5-linux-x64.deb) | 36.3 MiB |
+| `keepsake-atelier-0.3.5-windows-x64.zip` | [Download](https://covers.debrid.in/keepsake-atelier/releases/0.3.5/keepsake-atelier-0.3.5-windows-x64.zip) | 138.0 MiB |
+| `Keepsake-Atelier-0.3.5-windows-x64-setup.exe` | [Download](https://covers.debrid.in/keepsake-atelier/releases/0.3.5/Keepsake-Atelier-0.3.5-windows-x64-setup.exe) | 101.0 MiB |
 <!-- downloads:end -->
 
 Apple Silicon or Intel on macOS 12 or newer, plus Linux x86_64 and Windows
