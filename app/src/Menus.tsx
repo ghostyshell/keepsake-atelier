@@ -273,6 +273,14 @@ export function Menus({ source, busy: driveBusy, onError, onToast }: Props) {
                       key={t.index}
                       className={`title ${sel === t.index ? "on" : ""}`}
                       onClick={() => setSel(t.index)}
+                      tabIndex={0}
+                      aria-current={sel === t.index ? "true" : undefined}
+                      onKeyDown={(e) => {
+                        if (e.target === e.currentTarget && (e.key === "Enter" || e.key === " ")) {
+                          e.preventDefault();
+                          setSel(t.index);
+                        }
+                      }}
                     >
                       <span className="idx">#{t.index}</span>
                       <div className="grow">

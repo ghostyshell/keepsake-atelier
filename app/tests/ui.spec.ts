@@ -143,3 +143,9 @@ test("captures the populated disc view", async ({ page }) => {
   await expect(page.getByRole("heading", { name: "Titles" })).toBeVisible();
   await page.screenshot({ path: "test-results/ui-disc.png", fullPage: true });
 });
+
+test("unslop-anything a11y pass: artwork search input has an accessible name", async ({ page }) => {
+  await page.getByRole("navigation", { name: "Workspace sections" }).getByRole("button", { name: /Artwork/ }).click();
+  await expect(page.getByRole("heading", { level: 1, name: "Artwork" })).toBeVisible();
+  await expect(page.getByRole("textbox", { name: "Movie title" })).toBeVisible();
+});

@@ -93,7 +93,7 @@
     color: var(--text); text-decoration: none; font-size: 13px; white-space: nowrap;
     margin-left: 4px;
   }
-  .nav .gh:hover { border-color: var(--gold-deep); color: var(--gold); }
+  .nav .gh:hover, .nav .gh:focus-visible { border-color: var(--gold-deep); color: var(--gold); }
   .nav-toggle {
     display: none; margin-left: auto; width: 40px; height: 40px; padding: 10px;
     flex-direction: column; justify-content: center; gap: 4px;
@@ -126,11 +126,11 @@
     border-radius: 999px; padding: 12px 20px; font-size: 14px; font-weight: 600;
     text-decoration: none; border: 1px solid transparent; transition: transform .15s ease, border-color .15s ease, background .15s ease;
   }
-  .btn:hover { transform: translateY(-1px); }
+  .btn:hover, .btn:focus-visible { transform: translateY(-1px); }
   .btn.primary { background: var(--gold); color: #161006; box-shadow: 0 10px 30px rgba(0,0,0,.38); }
-  .btn.primary:hover { background: #f0cf7e; }
+  .btn.primary:hover, .btn.primary:focus-visible { background: #f0cf7e; }
   .btn.ghost { border-color: var(--line); color: var(--text); }
-  .btn.ghost:hover { border-color: var(--gold-deep); color: var(--gold); }
+  .btn.ghost:hover, .btn.ghost:focus-visible { border-color: var(--gold-deep); color: var(--gold); }
   .btn svg { width: 16px; height: 16px; }
   .meta { font-family: var(--mono); font-size: 12px; color: var(--muted-2); letter-spacing: .04em; }
   .meta b { color: var(--gold); font-weight: 500; }
@@ -184,10 +184,10 @@
   .feature p { margin: 0; color: var(--muted); font-size: 13.2px; line-height: 1.55; }
   .feature .tag { font-family: var(--mono); font-size: 11px; color: var(--gold-deep); letter-spacing: .1em; text-transform: uppercase; display: block; margin-bottom: 10px; }
   .feature { transition: border-color .18s ease, transform .18s ease; }
-  .feature:hover, .card:hover { border-color: var(--line); transform: translateY(-2px); }
+  .feature:hover, .feature:focus-within, .card:hover, .card:focus-within { border-color: var(--line); transform: translateY(-2px); }
   .card { transition: border-color .18s ease, transform .18s ease; }
   .card h3 a { text-decoration: none; }
-  .card h3 a:hover { color: var(--gold); text-decoration: underline; text-underline-offset: 3px; }
+  .card h3 a:hover, .card h3 a:focus-visible { color: var(--gold); text-decoration: underline; text-underline-offset: 3px; }
 
   /* steps */
   .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; counter-reset: step; }
@@ -219,8 +219,8 @@
     border-radius: 8px; border: 1px solid var(--line); color: var(--text);
   }
   .artifact a.primary { background: var(--gold); color: #161006; border-color: transparent; }
-  .artifact a:hover { border-color: var(--gold-deep); color: var(--gold); }
-  .artifact a.primary:hover { background: #f0cf7e; color: #161006; }
+  .artifact a:hover, .artifact a:focus-visible { border-color: var(--gold-deep); color: var(--gold); }
+  .artifact a.primary:hover, .artifact a.primary:focus-visible { background: #f0cf7e; color: #161006; }
   .artifact .hash { margin-top: 10px; font-family: var(--mono); font-size: 11px; color: var(--muted-2); word-break: break-all; }
   .download-note { margin-top: 14px; font-size: 12.5px; color: var(--muted-2); }
   .download-note code { font-family: var(--mono); color: var(--muted); }
@@ -253,7 +253,7 @@
   .foot p { margin: 8px 0 0; color: var(--muted-2); font-size: 12.5px; max-width: 420px; }
   .foot nav { display: flex; flex-wrap: wrap; gap: 18px; }
   .foot nav a { color: var(--muted); text-decoration: none; font-size: 13px; }
-  .foot nav a:hover { color: var(--gold); }
+  .foot nav a:hover, .foot nav a:focus-visible { color: var(--gold); }
   .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
 
   @media (max-width: 960px) {

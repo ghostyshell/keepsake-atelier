@@ -6,6 +6,7 @@ All notable changes to Keepsake Atelier. Newest first.
 
 ### Changed
 
+- Accessibility pass: artwork and key search inputs have accessible names, the menu title rows are keyboard reachable, docs hover styles also apply on keyboard focus.
 - Downloads are hosted on Cloudflare R2 under versioned, immutable keys, so a
   link stays valid until the next version. The weekly GoFile/file.kiwi re-upload
   is gone: the scheduled job now only checks the live feed for a version bump,

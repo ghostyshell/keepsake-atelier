@@ -1767,7 +1767,7 @@ export default function App() {
                 </div>
 
                 <div className="row wrap" style={{ marginTop: 12, gap: 8 }}>
-                  <input className="grow" style={{ minWidth: 180 }} value={tabs[coverTab].query} placeholder="Movie title"
+                  <input className="grow" style={{ minWidth: 180 }} value={tabs[coverTab].query} placeholder="Movie title" aria-label="Movie title"
                     onChange={(e) => patchTab(coverTab, { query: e.target.value })}
                     onKeyDown={(e) => { if (e.key === "Enter") searchRole(coverTab); }} />
                   <select style={{ width: 170 }} value={tabs[coverTab].source}
@@ -1932,7 +1932,7 @@ export default function App() {
                 <details className="group" style={{ marginTop: 14 }}>
                   <summary>Search and import</summary>
                   <div className="row" style={{ gap: 6, marginTop: 10 }}>
-                    <input className="grow" value={keyQuery} placeholder="name or disc id"
+                    <input className="grow" value={keyQuery} placeholder="name or disc id" aria-label="Search by name or disc id"
                       onChange={(e) => setKeyQuery(e.target.value)}
                       onKeyDown={(e) => { if (e.key === "Enter") void searchKeys(); }} />
                     <button className="ghost sm" onClick={() => void searchKeys()} disabled={keyBusy}>
