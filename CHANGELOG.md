@@ -4,6 +4,10 @@ All notable changes to Keepsake Atelier. Newest first.
 
 ## Unreleased
 
+Nothing yet.
+
+## 0.3.5 - 2026-11-25
+
 ### Changed
 
 - Accessibility pass: artwork and key search inputs have accessible names, the menu title rows are keyboard reachable, docs hover styles also apply on keyboard focus.
