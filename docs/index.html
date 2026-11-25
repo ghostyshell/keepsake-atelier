@@ -184,7 +184,7 @@
   .feature p { margin: 0; color: var(--muted); font-size: 13.2px; line-height: 1.55; }
   .feature .tag { font-family: var(--mono); font-size: 11px; color: var(--gold-deep); letter-spacing: .1em; text-transform: uppercase; display: block; margin-bottom: 10px; }
   .feature { transition: border-color .18s ease, transform .18s ease; }
-  .feature:hover, .feature:focus-within, .card:hover, .card:focus-within { border-color: var(--line); transform: translateY(-2px); }
+  .feature:hover, .feature:has(:focus-visible), .card:hover, .card:has(:focus-visible) { border-color: var(--line); transform: translateY(-2px); }
   .card { transition: border-color .18s ease, transform .18s ease; }
   .card h3 a { text-decoration: none; }
   .card h3 a:hover, .card h3 a:focus-visible { color: var(--gold); text-decoration: underline; text-underline-offset: 3px; }
